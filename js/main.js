@@ -30,11 +30,11 @@ class Pogoda extends HTMLElement {
     this.querySelector('.name').innerHTML = name;
     this.querySelector('.temp').innerHTML = main.temp + '°C';
     this.querySelector('.weather').innerHTML = weather[0].description;
-    this.querySelector('.coord').innerHTML = 'Lat:' + coord.lat + '<br/>Lon:' + coord.lon;
     this.rotateWindArrow(wind.deg, wind.speed);
   }
 
   rotateWindArrow(deg, speed) {
+    this.querySelector('.wind-speed').innerHTML = speed + ' м/с';
     this.querySelector('.arrow').style.transform = 'rotate(' + (deg-270) + 'deg)';
   }
 

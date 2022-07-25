@@ -289,16 +289,21 @@ textarea {
 .wind-circle {
   display: flex;
   align-items: center;
-  width: calc(50vw + 10px);
-  height:  calc(50vw + 10px);
+  width: calc(50vh + 10px);
+  height:  calc(50vh + 10px);
   border: 3px dashed #ffffff;
   border-radius: 50%;
+}
+
+.wind-speed {
+  font-size: 22px;
+  text-align: center;
 }
 
 .arrow-line {
   display: flex;
   justify-content: flex-end;
-  width: 50vw;
+  width: 50vh;
   height: 3px;
   background-color: #ffffff;
 }
