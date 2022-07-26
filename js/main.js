@@ -26,14 +26,19 @@ class Pogoda extends HTMLElement {
 
   showData(data) {
     console.log(data);
-    const { name, coord, main, wind, weather } = data;
+    const { name, main, wind, weather, sys, dt } = data;
+    const sunset = new Date(dt);
+    const sunrise = new Date(sys.sunrise - sys.sunset);
+
     this.querySelector('.name').innerHTML = name;
     this.querySelector('.temp').innerHTML = main.temp + '°C';
-    this.querySelector('.weather').innerHTML = weather[0].description;
-    this.rotateWindArrow(wind.deg, wind.speed);
+    this.querySelector('.weather').innerHTML = weather[0].description + '<br/>' + weather[0].icon;
+    this.querySelector('.sunset').innerHTML = 'Схід:<br/>' + sunset;
+    this.querySelector('.sunrise').innerHTML = 'Захід:<br/>' + sunrise;
+    this.setWindArrow(wind.deg, wind.speed);
   }
 
-  rotateWindArrow(deg, speed) {
+  setWindArrow(deg, speed) {
     this.querySelector('.wind-speed').innerHTML = speed + ' м/с';
     this.querySelector('.arrow').style.transform = 'rotate(' + (deg-270) + 'deg)';
   }
