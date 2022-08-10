@@ -13,7 +13,7 @@ class Pogoda extends HTMLElement {
 
   setHourlyBackground() {
     const d = new Date();
-    let hour = d.getHours();
+    const hour = d.getHours();
 
     this.querySelector('.wrapper').classList.add('g' + hour);
   }
@@ -25,10 +25,9 @@ class Pogoda extends HTMLElement {
   }
 
   showData(data) {
-    console.log(data);
     const { name, main, wind, weather, sys, dt } = data;
     const sunset = new Date(dt);
-    const sunrise = new Date(sys.sunrise - sys.sunset);
+    const sunrise = new Date(sys.sunrise);
 
     this.querySelector('.name').innerHTML = name;
     this.querySelector('.temp').innerHTML = main.temp + '°C';
